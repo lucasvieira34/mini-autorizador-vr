@@ -4,6 +4,7 @@ import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoRequestDto;
 import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoResponseDto;
 import br.com.lucas.vieira.miniautorizadorvr.entity.Cartao;
 import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoExistenteException;
+import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoEncontradoException;
 import br.com.lucas.vieira.miniautorizadorvr.repository.CartaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -28,5 +29,11 @@ public class CartaoService {
                 .numeroCartao(request.getNumeroCartao())
                 .senha(request.getSenha())
                 .build();
+    }
+
+    public Double obterSaldo(String numeroCartao) {
+        Cartao cartao = this.cartaoRepository.findByNumeroCartao(numeroCartao)
+                .orElseThrow(() -> new CartaoNaoEncontradoException(numeroCartao));
+        return cartao.getSaldo();
     }
 }

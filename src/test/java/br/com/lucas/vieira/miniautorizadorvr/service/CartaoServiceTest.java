@@ -4,6 +4,7 @@ import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoRequestDto;
 import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoResponseDto;
 import br.com.lucas.vieira.miniautorizadorvr.entity.Cartao;
 import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoExistenteException;
+import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoEncontradoException;
 import br.com.lucas.vieira.miniautorizadorvr.repository.CartaoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,8 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -37,7 +37,7 @@ class CartaoServiceTest {
 
 
     @Test
-    void deveCriarCartaoComSaldoInicialDe500() {
+    void criarCartaoComSaldoInicial() {
         when(cartaoRepository.existsByNumeroCartao(request.getNumeroCartao())).thenReturn(false);
 
         CartaoResponseDto response = cartaoService.criarCartao(request);
@@ -48,7 +48,7 @@ class CartaoServiceTest {
     }
 
     @Test
-    void naoDeveCriarCartaoSeJaExistir() {
+    void exceptionCasoCartaoExistente() {
         when(cartaoRepository.existsByNumeroCartao(request.getNumeroCartao())).thenReturn(true);
 
         CartaoExistenteException exception = assertThrows(CartaoExistenteException.class, () -> {
@@ -58,4 +58,29 @@ class CartaoServiceTest {
         assertEquals(request, exception.getCartaoRequest());
         verify(cartaoRepository, times(0)).save(any(Cartao.class));
     }
+
+    @Test
+    void obterSaldoCartaoExistente() {
+        Cartao cartao = Cartao.builder()
+                .numeroCartao(request.getNumeroCartao())
+                .senha(request.getSenha())
+                .saldo(500.00)
+                .build();
+        when(cartaoRepository.findByNumeroCartao(request.getNumeroCartao())).thenReturn(java.util.Optional.of(cartao));
+
+        Double saldo = cartaoService.obterSaldo(request.getNumeroCartao());
+
+        assertNotNull(saldo);
+        assertEquals(500.00, saldo);
+    }
+
+    @Test
+    void obterSaldoCartaoNaoExistente() {
+        when(cartaoRepository.findByNumeroCartao(request.getNumeroCartao())).thenReturn(java.util.Optional.empty());
+
+        assertThrows(CartaoNaoEncontradoException.class, () -> {
+            cartaoService.obterSaldo(request.getNumeroCartao());
+        });
+    }
+
 }
