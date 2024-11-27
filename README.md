@@ -15,16 +15,16 @@ A aplicação segue uma arquitetura simples modular, com separação entre camad
 
 1. **Gestão de Cartões**
     - Criação de novos cartões.
-      ![criar-cartao.png](main/resources/images/criar-cartao.png)
+      ![criar-cartao.png](src/main/resources/images/criar-cartao.png)
     - Consulta de saldo dos cartões existentes.
-      ![consulta-saldo.png](main/resources/images/consulta-saldo.png)
+      ![consulta-saldo.png](src/main/resources/images/consulta-saldo.png)
 2. **Autorização de Transações**
     - Realiza uma transação financeira verificando:
         - Existência do cartão.
         - Validade da senha.
         - Saldo disponível.
     - Atualiza o saldo do cartão caso a transação seja autorizada.
-      ![realiza-transacao.png](main/resources/images/realiza-transacao.png)
+      ![realiza-transacao.png](src/main/resources/images/realiza-transacao.png)
 
 ---
 
