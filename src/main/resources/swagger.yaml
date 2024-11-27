@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Mini Autorizador API
+  description: API para o sistema de autorização de transações.
+  version: "1.0.0"
+  contact:
+    name: Lucas Teixeira Vieira
+    email: lucas.teixeira34@gmail.com
+    url: https://github.com/lucasvieira34
+servers:
+  - url: http://localhost:8080
+    description: Servidor local para desenvolvimento
+
+paths:
+  /cartoes:
+    post:
+      tags:
+        - Cartão
+      summary: Criar novo cartão
+      operationId: criarCartao
+      requestBody:
+        description: Informações para criar um novo cartão
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CartaoRequestDto'
+      responses:
+        '201':
+          description: Cartão criado com sucesso.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartaoRequestDto'
+        '422':
+          description: Cartão já existe.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CartaoRequestDto'
+        '401':
+          description: Erro de autenticação.
+      security:
+        - basicAuth: []
+
+  /cartoes/{numeroCartao}:
+    get:
+      tags:
+        - Cartão
+      summary: Obter saldo do cartão
+      operationId: obterSaldo
+      parameters:
+        - name: numeroCartao
+          in: path
+          description: Número do cartão que se deseja consultar
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Saldo do cartão obtido com sucesso.
+          content:
+            application/json:
+              schema:
+                type: number
+                format: float
+                example: 495.15
+        '404':
+          description: Cartão não encontrado.
+        '401':
+          description: Erro de autenticação.
+      security:
+        - basicAuth: []
+
+  /transacoes:
+    post:
+      tags:
+        - Transação
+      summary: Realizar uma transação
+      operationId: realizarTransacao
+      requestBody:
+        description: Dados da transação
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TransacaoRequestDto'
+      responses:
+        '201':
+          description: Transação realizada com sucesso.
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "OK"
+        '422':
+          description: Transação barrada por erro de autorização.
+          content:
+            application/json:
+              schema:
+                type: string
+                example: "SALDO_INSUFICIENTE|SENHA_INVALIDA|CARTAO_INEXISTENTE"
+        '401':
+          description: Erro de autenticação.
+      security:
+        - basicAuth: []
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Autenticação Basic Auth
+
+  schemas:
+    CartaoRequestDto:
+      type: object
+      properties:
+        numeroCartao:
+          type: string
+          description: Número do cartão
+          example: "6549873025634501"
+        senha:
+          type: string
+          description: Senha do cartão
+          example: "1234"
+
+    TransacaoRequestDto:
+      type: object
+      properties:
+        numeroCartao:
+          type: string
+          description: Número do cartão
+          example: "6549873025634501"
+        senhaCartao:
+          type: string
+          description: Senha do cartão
+          example: "1234"
+        valor:
+          type: number
+          format: float
+          description: Valor da transação
+          example: 10.00
+
+security:
+  - basicAuth: []
