@@ -1,6 +1,6 @@
-package br.com.lucas.vieira.miniautorizadorvr.repository;
+package br.com.lucas.vieira.miniautorizadorvr.infrastructure.repository;
 
-import br.com.lucas.vieira.miniautorizadorvr.entity.Cartao;
+import br.com.lucas.vieira.miniautorizadorvr.domain.entity.Cartao;
 import jakarta.persistence.LockModeType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;

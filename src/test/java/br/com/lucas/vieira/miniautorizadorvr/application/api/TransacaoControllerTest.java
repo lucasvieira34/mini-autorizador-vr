@@ -1,9 +1,9 @@
-package br.com.lucas.vieira.miniautorizadorvr.controller;
+package br.com.lucas.vieira.miniautorizadorvr.application.api;
 
-import br.com.lucas.vieira.miniautorizadorvr.dto.TransacaoRequestDto;
-import br.com.lucas.vieira.miniautorizadorvr.enumeration.ErroTransacao;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.TransacaoException;
-import br.com.lucas.vieira.miniautorizadorvr.service.TransacaoService;
+import br.com.lucas.vieira.miniautorizadorvr.domain.dto.TransacaoRequestDto;
+import br.com.lucas.vieira.miniautorizadorvr.domain.enumeration.ErroTransacao;
+import br.com.lucas.vieira.miniautorizadorvr.domain.exceptions.TransacaoException;
+import br.com.lucas.vieira.miniautorizadorvr.domain.service.TransacaoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

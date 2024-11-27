@@ -1,7 +1,7 @@
-package br.com.lucas.vieira.miniautorizadorvr.config;
+package br.com.lucas.vieira.miniautorizadorvr.infrastructure.config;
 
-import br.com.lucas.vieira.miniautorizadorvr.entity.User;
-import br.com.lucas.vieira.miniautorizadorvr.repository.UserRepository;
+import br.com.lucas.vieira.miniautorizadorvr.domain.entity.User;
+import br.com.lucas.vieira.miniautorizadorvr.infrastructure.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;

@@ -1,6 +1,6 @@
-package br.com.lucas.vieira.miniautorizadorvr.exceptions;
+package br.com.lucas.vieira.miniautorizadorvr.domain.exceptions;
 
-import br.com.lucas.vieira.miniautorizadorvr.enumeration.ErroTransacao;
+import br.com.lucas.vieira.miniautorizadorvr.domain.enumeration.ErroTransacao;
 import lombok.Getter;
 
 @Getter

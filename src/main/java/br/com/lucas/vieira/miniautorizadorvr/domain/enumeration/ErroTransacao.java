@@ -1,4 +1,4 @@
-package br.com.lucas.vieira.miniautorizadorvr.enumeration;
+package br.com.lucas.vieira.miniautorizadorvr.domain.enumeration;
 
 public enum ErroTransacao {
     SALDO_INSUFICIENTE("Saldo insuficiente"),

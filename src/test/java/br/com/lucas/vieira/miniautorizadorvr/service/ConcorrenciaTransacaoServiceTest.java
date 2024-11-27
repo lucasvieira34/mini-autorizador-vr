@@ -1,8 +1,9 @@
 package br.com.lucas.vieira.miniautorizadorvr.service;
 
-import br.com.lucas.vieira.miniautorizadorvr.dto.TransacaoRequestDto;
-import br.com.lucas.vieira.miniautorizadorvr.entity.Cartao;
-import br.com.lucas.vieira.miniautorizadorvr.repository.CartaoRepository;
+import br.com.lucas.vieira.miniautorizadorvr.domain.service.TransacaoService;
+import br.com.lucas.vieira.miniautorizadorvr.domain.dto.TransacaoRequestDto;
+import br.com.lucas.vieira.miniautorizadorvr.domain.entity.Cartao;
+import br.com.lucas.vieira.miniautorizadorvr.infrastructure.repository.CartaoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

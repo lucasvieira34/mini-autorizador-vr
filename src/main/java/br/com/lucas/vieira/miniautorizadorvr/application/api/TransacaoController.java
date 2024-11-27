@@ -1,8 +1,8 @@
-package br.com.lucas.vieira.miniautorizadorvr.controller;
+package br.com.lucas.vieira.miniautorizadorvr.application.api;
 
-import br.com.lucas.vieira.miniautorizadorvr.dto.TransacaoRequestDto;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.TransacaoException;
-import br.com.lucas.vieira.miniautorizadorvr.service.TransacaoService;
+import br.com.lucas.vieira.miniautorizadorvr.domain.dto.TransacaoRequestDto;
+import br.com.lucas.vieira.miniautorizadorvr.domain.exceptions.TransacaoException;
+import br.com.lucas.vieira.miniautorizadorvr.domain.service.TransacaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

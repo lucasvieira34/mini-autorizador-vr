@@ -1,4 +1,4 @@
-package br.com.lucas.vieira.miniautorizadorvr.exceptions;
+package br.com.lucas.vieira.miniautorizadorvr.domain.exceptions;
 
 public class CartaoNaoExistenteException extends RuntimeException {
     public CartaoNaoExistenteException(String numeroCartao) {

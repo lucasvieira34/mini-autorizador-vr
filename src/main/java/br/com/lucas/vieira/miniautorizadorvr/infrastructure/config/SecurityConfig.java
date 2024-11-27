@@ -1,4 +1,4 @@
-package br.com.lucas.vieira.miniautorizadorvr.config;
+package br.com.lucas.vieira.miniautorizadorvr.infrastructure.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

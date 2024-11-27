@@ -1,10 +1,10 @@
-package br.com.lucas.vieira.miniautorizadorvr.service;
+package br.com.lucas.vieira.miniautorizadorvr.domain.service;
 
-import br.com.lucas.vieira.miniautorizadorvr.dto.TransacaoRequestDto;
-import br.com.lucas.vieira.miniautorizadorvr.entity.Cartao;
-import br.com.lucas.vieira.miniautorizadorvr.enumeration.ErroTransacao;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.TransacaoException;
-import br.com.lucas.vieira.miniautorizadorvr.repository.CartaoRepository;
+import br.com.lucas.vieira.miniautorizadorvr.domain.dto.TransacaoRequestDto;
+import br.com.lucas.vieira.miniautorizadorvr.domain.entity.Cartao;
+import br.com.lucas.vieira.miniautorizadorvr.domain.enumeration.ErroTransacao;
+import br.com.lucas.vieira.miniautorizadorvr.domain.exceptions.TransacaoException;
+import br.com.lucas.vieira.miniautorizadorvr.infrastructure.repository.CartaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

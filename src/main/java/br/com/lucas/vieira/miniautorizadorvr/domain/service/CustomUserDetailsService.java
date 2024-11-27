@@ -1,7 +1,7 @@
-package br.com.lucas.vieira.miniautorizadorvr.service;
+package br.com.lucas.vieira.miniautorizadorvr.domain.service;
 
-import br.com.lucas.vieira.miniautorizadorvr.entity.User;
-import br.com.lucas.vieira.miniautorizadorvr.repository.UserRepository;
+import br.com.lucas.vieira.miniautorizadorvr.domain.entity.User;
+import br.com.lucas.vieira.miniautorizadorvr.infrastructure.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

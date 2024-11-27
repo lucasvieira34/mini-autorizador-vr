@@ -1,10 +1,10 @@
-package br.com.lucas.vieira.miniautorizadorvr.controller;
+package br.com.lucas.vieira.miniautorizadorvr.application.api;
 
-import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoRequestDto;
-import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoResponseDto;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoExistenteException;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoExistenteException;
-import br.com.lucas.vieira.miniautorizadorvr.service.CartaoService;
+import br.com.lucas.vieira.miniautorizadorvr.domain.dto.CartaoRequestDto;
+import br.com.lucas.vieira.miniautorizadorvr.domain.dto.CartaoResponseDto;
+import br.com.lucas.vieira.miniautorizadorvr.domain.exceptions.CartaoExistenteException;
+import br.com.lucas.vieira.miniautorizadorvr.domain.exceptions.CartaoNaoExistenteException;
+import br.com.lucas.vieira.miniautorizadorvr.domain.service.CartaoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

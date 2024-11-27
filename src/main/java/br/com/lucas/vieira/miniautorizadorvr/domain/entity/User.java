@@ -1,4 +1,4 @@
-package br.com.lucas.vieira.miniautorizadorvr.entity;
+package br.com.lucas.vieira.miniautorizadorvr.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

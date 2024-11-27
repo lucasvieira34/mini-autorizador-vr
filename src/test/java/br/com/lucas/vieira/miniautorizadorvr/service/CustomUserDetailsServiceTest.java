@@ -1,7 +1,8 @@
 package br.com.lucas.vieira.miniautorizadorvr.service;
 
-import br.com.lucas.vieira.miniautorizadorvr.entity.User;
-import br.com.lucas.vieira.miniautorizadorvr.repository.UserRepository;
+import br.com.lucas.vieira.miniautorizadorvr.domain.entity.User;
+import br.com.lucas.vieira.miniautorizadorvr.domain.service.CustomUserDetailsService;
+import br.com.lucas.vieira.miniautorizadorvr.infrastructure.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

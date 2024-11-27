@@ -1,4 +1,4 @@
-package br.com.lucas.vieira.miniautorizadorvr.dto;
+package br.com.lucas.vieira.miniautorizadorvr.domain.dto;
 
 import lombok.Builder;
 import lombok.Data;
