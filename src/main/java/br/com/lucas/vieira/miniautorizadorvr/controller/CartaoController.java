@@ -2,7 +2,7 @@ package br.com.lucas.vieira.miniautorizadorvr.controller;
 
 import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoRequestDto;
 import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoExistenteException;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoEncontradoException;
+import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoExistenteException;
 import br.com.lucas.vieira.miniautorizadorvr.service.CartaoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -30,7 +30,7 @@ public class CartaoController {
         try {
             Double saldo = this.cartaoService.obterSaldo(numeroCartao);
             return ResponseEntity.ok(saldo);
-        } catch (CartaoNaoEncontradoException e) {
+        } catch (CartaoNaoExistenteException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }

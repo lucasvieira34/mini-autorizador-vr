@@ -3,7 +3,7 @@ package br.com.lucas.vieira.miniautorizadorvr.controller;
 import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoRequestDto;
 import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoResponseDto;
 import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoExistenteException;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoEncontradoException;
+import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoExistenteException;
 import br.com.lucas.vieira.miniautorizadorvr.service.CartaoService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -87,7 +87,7 @@ class CartaoControllerTest {
 
     @Test
     void obterSaldoCartaoNaoExistente() {
-        when(cartaoService.obterSaldo(anyString())).thenThrow(CartaoNaoEncontradoException.class);
+        when(cartaoService.obterSaldo(anyString())).thenThrow(CartaoNaoExistenteException.class);
 
         ResponseEntity<?> response = cartaoController.obterSaldo("1234567890123456");
 

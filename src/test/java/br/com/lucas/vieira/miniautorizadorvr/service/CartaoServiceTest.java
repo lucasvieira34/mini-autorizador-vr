@@ -4,7 +4,7 @@ import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoRequestDto;
 import br.com.lucas.vieira.miniautorizadorvr.dto.CartaoResponseDto;
 import br.com.lucas.vieira.miniautorizadorvr.entity.Cartao;
 import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoExistenteException;
-import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoEncontradoException;
+import br.com.lucas.vieira.miniautorizadorvr.exceptions.CartaoNaoExistenteException;
 import br.com.lucas.vieira.miniautorizadorvr.repository.CartaoRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -78,7 +78,7 @@ class CartaoServiceTest {
     void obterSaldoCartaoNaoExistente() {
         when(cartaoRepository.findByNumeroCartao(request.getNumeroCartao())).thenReturn(java.util.Optional.empty());
 
-        assertThrows(CartaoNaoEncontradoException.class, () -> {
+        assertThrows(CartaoNaoExistenteException.class, () -> {
             cartaoService.obterSaldo(request.getNumeroCartao());
         });
     }
